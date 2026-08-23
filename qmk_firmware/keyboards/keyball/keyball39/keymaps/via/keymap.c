@@ -55,23 +55,23 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 // RGB layer indicators
 const rgblight_segment_t PROGMEM rgb_layer0[] = RGBLIGHT_LAYER_SEGMENTS(
-    {0,1, HSV_RED}
+    {43,1, HSV_BLUE}
 );
 
 const rgblight_segment_t PROGMEM rgb_layer1[] = RGBLIGHT_LAYER_SEGMENTS(
-    {4,1, HSV_RED}
+    {43,1, HSV_GREEN}
 );
 
 const rgblight_segment_t PROGMEM rgb_layer2[] = RGBLIGHT_LAYER_SEGMENTS(
-    {8,1, HSV_RED}
+    {43,1, HSV_YELLOW}
 );
 
 const rgblight_segment_t PROGMEM rgb_layer3[] = RGBLIGHT_LAYER_SEGMENTS(
-    {12,1, HSV_RED}
+    {43,1, HSV_PURPLE}
 );
 
 const rgblight_segment_t PROGMEM rgb_layer4[] = RGBLIGHT_LAYER_SEGMENTS(
-    {16,1, HSV_RED}
+    {43,1, HSV_RED}
 );
 
 const rgblight_segment_t PROGMEM rgb_layer5[] = RGBLIGHT_LAYER_SEGMENTS(
@@ -79,7 +79,7 @@ const rgblight_segment_t PROGMEM rgb_layer5[] = RGBLIGHT_LAYER_SEGMENTS(
 );
 
 const rgblight_segment_t* const PROGMEM rgb_layers[] = RGBLIGHT_LAYERS_LIST(
-    rgb_layer0,
+    null,
     rgb_layer1,
     rgb_layer2,
     rgb_layer3,
@@ -90,15 +90,12 @@ const rgblight_segment_t* const PROGMEM rgb_layers[] = RGBLIGHT_LAYERS_LIST(
 void keyboard_post_init_user(void) {
     rgblight_layers = rgb_layers;
 
-    // Start with Layer 0 indicator
-    rgblight_set_layer_state(0, true);
 }
 
 layer_state_t layer_state_set_user(layer_state_t state) {
     uint8_t layer = get_highest_layer(state);
 
     // Show only the highest active layer
-    rgblight_set_layer_state(0, layer == 0);
     rgblight_set_layer_state(1, layer == 1);
     rgblight_set_layer_state(2, layer == 2);
     rgblight_set_layer_state(3, layer == 3);
