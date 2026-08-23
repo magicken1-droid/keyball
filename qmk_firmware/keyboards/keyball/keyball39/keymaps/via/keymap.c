@@ -74,10 +74,6 @@ const rgblight_segment_t PROGMEM rgb_layer4[] = RGBLIGHT_LAYER_SEGMENTS(
     {43,1, HSV_RED}
 );
 
-const rgblight_segment_t PROGMEM rgb_layer5[] = RGBLIGHT_LAYER_SEGMENTS(
-    {20,1, HSV_RED}
-);
-
 const rgblight_segment_t* const PROGMEM rgb_layers[] = RGBLIGHT_LAYERS_LIST(
     null,
     rgb_layer1,
