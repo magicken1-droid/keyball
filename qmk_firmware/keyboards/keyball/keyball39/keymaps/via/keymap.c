@@ -54,28 +54,30 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 // clang-format on
 
 // RGB layer indicators
+// LED 43 = confirmed upper-left indicator LED on the right half
+
 const rgblight_segment_t PROGMEM rgb_layer1[] = RGBLIGHT_LAYER_SEGMENTS(
-    {43,1, HSV_BLUE}
+    {43, 1, HSV_BLUE}
 );
 
 const rgblight_segment_t PROGMEM rgb_layer2[] = RGBLIGHT_LAYER_SEGMENTS(
-    {43,1, HSV_GREEN}
+    {43, 1, HSV_GREEN}
 );
 
 const rgblight_segment_t PROGMEM rgb_layer3[] = RGBLIGHT_LAYER_SEGMENTS(
-    {43,1, HSV_YELLOW}
+    {43, 1, HSV_YELLOW}
 );
 
 const rgblight_segment_t PROGMEM rgb_layer4[] = RGBLIGHT_LAYER_SEGMENTS(
-    {43,1, HSV_PURPLE}
+    {43, 1, HSV_PURPLE}
 );
 
 const rgblight_segment_t PROGMEM rgb_layer5[] = RGBLIGHT_LAYER_SEGMENTS(
-    {43,1, HSV_RED}
+    {43, 1, HSV_RED}
 );
 
 const rgblight_segment_t* const PROGMEM rgb_layers[] = RGBLIGHT_LAYERS_LIST(
-    null,
+    NULL,
     rgb_layer1,
     rgb_layer2,
     rgb_layer3,
