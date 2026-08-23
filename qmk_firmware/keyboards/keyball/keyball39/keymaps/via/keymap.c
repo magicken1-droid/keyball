@@ -55,27 +55,27 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 // RGB layer indicators
 const rgblight_segment_t PROGMEM rgb_layer0[] = RGBLIGHT_LAYER_SEGMENTS(
-    {0,RGBLED_NUM, HSV_RED}
+    {24,1, HSV_RED}
 );
 
 const rgblight_segment_t PROGMEM rgb_layer1[] = RGBLIGHT_LAYER_SEGMENTS(
-    {1,1, HSV_RED}
+    {28,1, HSV_RED}
 );
 
 const rgblight_segment_t PROGMEM rgb_layer2[] = RGBLIGHT_LAYER_SEGMENTS(
-    {2,1, HSV_RED}
+    {32,1, HSV_RED}
 );
 
 const rgblight_segment_t PROGMEM rgb_layer3[] = RGBLIGHT_LAYER_SEGMENTS(
-    {3,1, HSV_RED}
+    {36,1, HSV_RED}
 );
 
 const rgblight_segment_t PROGMEM rgb_layer4[] = RGBLIGHT_LAYER_SEGMENTS(
-    {4,1, HSV_RED}
+    {40,1, HSV_RED}
 );
 
 const rgblight_segment_t PROGMEM rgb_layer5[] = RGBLIGHT_LAYER_SEGMENTS(
-    {5,1, HSV_RED}
+    {44,1, HSV_RED}
 );
 
 const rgblight_segment_t* const PROGMEM rgb_layers[] = RGBLIGHT_LAYERS_LIST(
