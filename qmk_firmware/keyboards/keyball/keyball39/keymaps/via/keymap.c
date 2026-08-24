@@ -65,39 +65,43 @@ layer_state_t layer_state_set_user(layer_state_t state) {
 
 void housekeeping_task_user(void) {
 #ifdef RGBLIGHT_ENABLE
+
+    uint8_t indicator_led = is_keyboard_left() ? 0 : 43;
+
     switch (current_layer) {
         case 0:
-            // Layer 0 = normal RGB
+            rgblight_sethsv_at(
+                rgblight_get_hue(),
+                rgblight_get_sat(),
+                rgblight_get_val(),
+                indicator_led
+            );
             break;
 
         case 1:
-            // Test LED 0
-            rgblight_sethsv_at(HSV_WHITE, 0);
+            rgblight_sethsv_at(HSV_BLUE, indicator_led);
             break;
 
         case 2:
-            // Test LED 5
-            rgblight_sethsv_at(HSV_WHITE, 5);
+            rgblight_sethsv_at(HSV_GREEN, indicator_led);
             break;
 
         case 3:
-            // Test LED 10
-            rgblight_sethsv_at(HSV_WHITE, 10);
+            rgblight_sethsv_at(HSV_YELLOW, indicator_led);
             break;
 
         case 4:
-            // Test LED 15
-            rgblight_sethsv_at(HSV_WHITE, 15);
+            rgblight_sethsv_at(HSV_PURPLE, indicator_led);
             break;
 
         case 5:
-            // Test LED 20
-            rgblight_sethsv_at(HSV_WHITE, 20);
+            rgblight_sethsv_at(HSV_RED, indicator_led);
             break;
 
         default:
             break;
     }
+
 #endif
 }
 
