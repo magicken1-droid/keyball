@@ -64,9 +64,9 @@ void housekeeping_task_user(void) {
 
     // TEST:
     // When the right half is the slave, force LED 43 to white.
-    if (!is_keyboard_master() && !is_keyboard_left()) {
-        rgblight_sethsv_at(HSV_WHITE, 43);
-        return;
+    if (!is_keyboard_master()) {
+    rgblight_sethsv_at(HSV_WHITE, 43);
+    return;
     }
   
     uint8_t indicator_led = is_keyboard_left() ? 0 : 43;
