@@ -31,7 +31,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define SOFT_SERIAL_PIN         D2
 #define SPLIT_HAND_MATRIX_GRID  F6, B5
 #define SPLIT_USB_DETECT
-#define SPLIT_LAYER_STATE_ENABLE
 #ifdef OLED_ENABLE
 #    define SPLIT_OLED_ENABLE
 #endif
@@ -46,7 +45,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 // RGB LED settings
 #define WS2812_DI_PIN       D3
 #ifdef RGBLIGHT_ENABLE
-#    define RGBLIGHT_LAYERS
 #    define RGBLED_NUM      48
 #    define RGBLED_SPLIT    { 24, 24 }  // (24 + 22)
 #    ifndef RGBLIGHT_LIMIT_VAL
