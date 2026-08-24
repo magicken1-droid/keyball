@@ -67,33 +67,32 @@ void housekeeping_task_user(void) {
 #ifdef RGBLIGHT_ENABLE
     switch (current_layer) {
         case 0:
-            rgblight_sethsv_at(
-                rgblight_get_hue(),
-                rgblight_get_sat(),
-                rgblight_get_val(),
-                43
-            );
+            // Layer 0 = normal RGB
             break;
 
-      
         case 1:
-            rgblight_sethsv_at(HSV_BLUE, 43);
+            // Test LED 0
+            rgblight_sethsv_at(HSV_WHITE, 0);
             break;
 
         case 2:
-            rgblight_sethsv_at(HSV_GREEN, 43);
+            // Test LED 5
+            rgblight_sethsv_at(HSV_WHITE, 5);
             break;
 
         case 3:
-            rgblight_sethsv_at(HSV_YELLOW, 43);
+            // Test LED 10
+            rgblight_sethsv_at(HSV_WHITE, 10);
             break;
 
         case 4:
-            rgblight_sethsv_at(HSV_PURPLE, 43);
+            // Test LED 15
+            rgblight_sethsv_at(HSV_WHITE, 15);
             break;
 
         case 5:
-            rgblight_sethsv_at(HSV_RED, 43);
+            // Test LED 20
+            rgblight_sethsv_at(HSV_WHITE, 20);
             break;
 
         default:
