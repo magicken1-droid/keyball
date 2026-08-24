@@ -53,57 +53,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 };
 // clang-format on
 
-// RGB layer indicators
-// LED 43 = confirmed upper-left indicator LED on the right half
-
-const rgblight_segment_t PROGMEM rgb_layer1[] = RGBLIGHT_LAYER_SEGMENTS(
-    {43, 1, HSV_BLUE}
-);
-
-const rgblight_segment_t PROGMEM rgb_layer2[] = RGBLIGHT_LAYER_SEGMENTS(
-    {43, 1, HSV_GREEN}
-);
-
-const rgblight_segment_t PROGMEM rgb_layer3[] = RGBLIGHT_LAYER_SEGMENTS(
-    {43, 1, HSV_YELLOW}
-);
-
-const rgblight_segment_t PROGMEM rgb_layer4[] = RGBLIGHT_LAYER_SEGMENTS(
-    {43, 1, HSV_PURPLE}
-);
-
-const rgblight_segment_t PROGMEM rgb_layer5[] = RGBLIGHT_LAYER_SEGMENTS(
-    {43, 1, HSV_RED}
-);
-
-const rgblight_segment_t* const PROGMEM rgb_layers[] = RGBLIGHT_LAYERS_LIST(
-    NULL,
-    rgb_layer1,
-    rgb_layer2,
-    rgb_layer3,
-    rgb_layer4,
-    rgb_layer5
-);
-
-void keyboard_post_init_user(void) {
-    rgblight_layers = rgb_layers;
-
-}
-
 layer_state_t layer_state_set_user(layer_state_t state) {
-    uint8_t layer = get_highest_layer(state);
-
-    // Show only the highest active layer
-    rgblight_set_layer_state(1, layer == 1);
-    rgblight_set_layer_state(2, layer == 2);
-    rgblight_set_layer_state(3, layer == 3);
-    rgblight_set_layer_state(4, layer == 4);
-    rgblight_set_layer_state(5, layer == 5);
-
     // Auto enable scroll mode when the highest layer is 3
-    keyball_set_scroll_mode(layer == 3);
-
-    return state;  
+    keyball_set_scroll_mode(get_highest_layer(state) == 3);
+    return state;
 }
 
 #ifdef OLED_ENABLE
