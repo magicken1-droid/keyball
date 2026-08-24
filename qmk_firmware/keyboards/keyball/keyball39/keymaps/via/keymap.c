@@ -52,14 +52,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 };
 // clang-format on
-static uint8_t current_layer = 0;
 
 layer_state_t layer_state_set_user(layer_state_t state) {
-  current_layer = get_highest_layer(state);
-  
-    // Auto enable scroll mode when the highest layer is 3
+     // Auto enable scroll mode when the highest layer is 3
     keyball_set_scroll_mode(get_highest_layer(state) == 3);
-  
     return state;
 }
 
@@ -67,8 +63,9 @@ void housekeeping_task_user(void) {
 #ifdef RGBLIGHT_ENABLE
 
     uint8_t indicator_led = is_keyboard_left() ? 0 : 43;
+    uint8_t active_layer = get_highest_layer(layer_state);
 
-    switch (current_layer) {
+    switch (active_layer) {
         case 0:
             rgblight_sethsv_at(
                 rgblight_get_hue(),
