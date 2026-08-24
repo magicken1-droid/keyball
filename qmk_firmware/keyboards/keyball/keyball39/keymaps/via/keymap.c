@@ -61,13 +61,6 @@ layer_state_t layer_state_set_user(layer_state_t state) {
 
 void housekeeping_task_user(void) {
 #ifdef RGBLIGHT_ENABLE
-
-    // TEST:
-    // When the right half is the slave, force LED 43 to white.
-    if (!is_keyboard_master()) {
-    rgblight_sethsv_at(HSV_WHITE, 43);
-    return;
-    }
   
     uint8_t indicator_led = is_keyboard_left() ? 0 : 43;
     uint8_t active_layer = get_highest_layer(layer_state);
