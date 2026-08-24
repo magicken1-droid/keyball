@@ -52,11 +52,54 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 };
 // clang-format on
+static uint8_t current_layer = 0;
 
 layer_state_t layer_state_set_user(layer_state_t state) {
+  current_layer = get_highest_layer(state);
+  
     // Auto enable scroll mode when the highest layer is 3
     keyball_set_scroll_mode(get_highest_layer(state) == 3);
+  
     return state;
+}
+
+void housekeeping_task_user(void) {
+#ifdef RGBLIGHT_ENABLE
+    switch (current_layer) {
+        case 0:
+            rgblight_sethsv_at(
+                rgblight_get_hue(),
+                rgblight_get_sat(),
+                rgblight_get_val(),
+                43
+            );
+            break;
+
+      
+        case 1:
+            rgblight_sethsv_at(HSV_BLUE, 43);
+            break;
+
+        case 2:
+            rgblight_sethsv_at(HSV_GREEN, 43);
+            break;
+
+        case 3:
+            rgblight_sethsv_at(HSV_YELLOW, 43);
+            break;
+
+        case 4:
+            rgblight_sethsv_at(HSV_PURPLE, 43);
+            break;
+
+        case 5:
+            rgblight_sethsv_at(HSV_RED, 43);
+            break;
+
+        default:
+            break;
+    }
+#endif
 }
 
 #ifdef OLED_ENABLE
