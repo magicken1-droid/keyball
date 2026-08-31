@@ -62,12 +62,12 @@ layer_state_t layer_state_set_user(layer_state_t state) {
 
 void housekeeping_task_user(void) {
 #ifdef RGBLIGHT_ENABLE
-   
     uint8_t indicator_led = is_keyboard_left() ? 0 : 43;
     uint8_t active_layer = get_highest_layer(layer_state);
 
     switch (active_layer) {
         case 0:
+            // HOME：通常のRGB設定をそのまま表示
             rgblight_sethsv_at(
                 rgblight_get_hue(),
                 rgblight_get_sat(),
@@ -77,29 +77,33 @@ void housekeeping_task_user(void) {
             break;
 
         case 1:
-            rgblight_sethsv_at(HSV_BLUE, indicator_led);
+            // Excel / テンキー：緑
+            rgblight_sethsv_at(85, 255, 180, indicator_led);
             break;
 
         case 2:
-            rgblight_sethsv_at(HSV_GREEN, indicator_led);
+            // NAVI / 移動・スクロール：オレンジ
+            rgblight_sethsv_at(21, 255, 200, indicator_led);
             break;
 
         case 3:
-            rgblight_sethsv_at(HSV_YELLOW, indicator_led);
+            // Keyball設定：黄
+            rgblight_sethsv_at(43, 255, 200, indicator_led);
             break;
 
         case 4:
-            rgblight_sethsv_at(HSV_PURPLE, indicator_led);
+            // WORK：白～グレー系
+            rgblight_sethsv_at(0, 0, 140, indicator_led);
             break;
 
         case 5:
-            rgblight_sethsv_at(HSV_RED, indicator_led);
+            // PRIVATE：ネイビー
+            rgblight_sethsv_at(170, 255, 120, indicator_led);
             break;
 
         default:
             break;
     }
-
 #endif
 }
 
