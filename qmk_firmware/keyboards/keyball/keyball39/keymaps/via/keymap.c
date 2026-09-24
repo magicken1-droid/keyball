@@ -100,8 +100,8 @@ void housekeeping_task_user(void) {
             // PRIVATE：ネイビー
             rgblight_sethsv_at(170, 255, 120, indicator_led);
             break;
-
-　　　　　case 6:
+      
+        case 6:
             // L6：パープル
             rgblight_sethsv_at(205, 255, 170, indicator_led);
             break;
@@ -109,7 +109,6 @@ void housekeeping_task_user(void) {
       default:
             break;
 
-        
     }
 #endif
 }
