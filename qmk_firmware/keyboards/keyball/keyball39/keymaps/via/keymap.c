@@ -101,13 +101,15 @@ void housekeeping_task_user(void) {
             rgblight_sethsv_at(170, 255, 120, indicator_led);
             break;
 
-        default:
-            break;
-
-        case 6:
+　　　　　case 6:
             // L6：パープル
             rgblight_sethsv_at(205, 255, 170, indicator_led);
             break;
+      
+      default:
+            break;
+
+        
     }
 #endif
 }
